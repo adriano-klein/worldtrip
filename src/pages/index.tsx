@@ -1,5 +1,6 @@
 import { Flex, Grid, Text, GridItem, HStack } from "@chakra-ui/react";
 import { Banner } from "../components/Banner";
+import { Carousel } from "../components/carousel";
 import { Categories } from "../components/Categories";
 import { Header } from "../components/Header";
 
@@ -29,6 +30,7 @@ export default function Home() {
           nessa?
           <br/>Então escolha seu continente
           </Text>
+          <Carousel />
     </>
   )
 }
