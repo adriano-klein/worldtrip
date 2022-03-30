@@ -1,4 +1,5 @@
-import { Box, Flex, HStack, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, HStack, Image, Text, SimpleGrid } from "@chakra-ui/react";
+import Cards from "../components/Cards";
 import { Header } from "../components/Header";
 
 export default function Europe(){
@@ -33,8 +34,14 @@ export default function Europe(){
           </Flex>
         </HStack>
       </Flex>
-
       <Text ml="60" fontWeight="700" color="gray.600" fontSize={25}>Cidades +100</Text>
+      <SimpleGrid columns={4} padding={10} justifyContent="center" maxW="1440" margin="0 auto">
+        <GridItem> <Cards city="Londres" country="Reino Unido" image="../images/London.jpg" countryFlag="./images/EnglandAvatar.svg"/></GridItem>
+        <GridItem> <Cards city="Paris" country="França" image="../images/France.jpg" countryFlag="./images/FranceAvatar.svg"/> </GridItem>
+        <GridItem> <Cards city="Rome" country="Itália" image="../images/Italy.jpg" countryFlag="./images/ItalyAvatar.svg"/> </GridItem>
+        <GridItem> <Cards city="Praga" country="República Tcheca" image="../images/CzechRepublic.jpg" countryFlag="./images/CzechRepublic.svg"/> </GridItem>
+        <GridItem> <Cards city="Amsterdã" country="Holanda" image="../images/Netherlands.jpg" countryFlag="./images/NetherlandsAvatar.svg"/> </GridItem>
+      </SimpleGrid>
     </>
 
   
