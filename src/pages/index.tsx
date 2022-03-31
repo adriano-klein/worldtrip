@@ -17,17 +17,17 @@ export default function Home() {
       <Header />
       <Banner isResponsive={isDesktop} />
         <Grid
-          templateColumns='repeat(5,
-          1fr)'
+          templateColumns={isDesktop ? 'repeat(5, 1fr)' : 'repeat(2, 1fr)'}
           width='100%'
           maxWidth='1200'
           margin='0 auto'
+          justifyItems={isDesktop ? null : 'center'}
           >
-          <Categories address="../images/Drink.svg" name="vida noturna" />
-          <Categories address="../images/Beach.svg" name="praia" />
-          <Categories address="../images/Building.svg" name="moderno" />
-          <Categories address="../images/Institution.svg" name="clássico" />
-          <Categories address="../images/Globe.svg" name="e mais..." />
+          <Categories isResponsive={isDesktop} address="../images/Drink.svg" name="vida noturna" />
+          <Categories isResponsive={isDesktop} address="../images/Beach.svg" name="praia" />
+          <Categories isResponsive={isDesktop} address="../images/Building.svg" name="moderno" />
+          <Categories isResponsive={isDesktop} address="../images/Institution.svg" name="clássico" />
+          <Categories isResponsive={isDesktop} address="../images/Globe.svg" name="e mais..." />
         </Grid>
         <Text
           align="center"

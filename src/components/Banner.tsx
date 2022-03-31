@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Text, useBreakpointValue } from "@chakra-ui/react"
+import { Box, Flex, Image, Text } from "@chakra-ui/react"
 
 interface showAirplaneProps{
   isResponsive: boolean;
