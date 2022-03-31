@@ -1,14 +1,21 @@
-import { Flex, Grid, Text, GridItem, HStack } from "@chakra-ui/react";
+import { Flex, Grid, Text, GridItem, HStack, useBreakpointValue, Box } from "@chakra-ui/react";
 import { Banner } from "../components/Banner";
 import { Carousel } from "../components/carousel";
 import { Categories } from "../components/Categories";
 import { Header } from "../components/Header";
 
+
+
 export default function Home() {
+  const isDesktop = useBreakpointValue({
+    base: false,
+    lg: true
+  })
+
   return (
-    <>
+    <Box>
       <Header />
-      <Banner />
+      <Banner isResponsive={isDesktop} />
         <Grid
           templateColumns='repeat(5,
           1fr)'
@@ -31,6 +38,6 @@ export default function Home() {
           <br/>Então escolha seu continente
           </Text>
           <Carousel />
-    </>
+    </Box>
   )
 }

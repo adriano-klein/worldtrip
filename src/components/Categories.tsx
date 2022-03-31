@@ -1,4 +1,4 @@
-import { Box, Flex, GridItem, Image, Text } from "@chakra-ui/react";
+import { Flex, GridItem, Image, Text } from "@chakra-ui/react";
 
 interface CategoriesProps{
   address: string;
@@ -10,7 +10,6 @@ export function Categories({address, name}:CategoriesProps){
     <GridItem>
       <Flex
         mt="35"
-        ml="58"
         direction="column"
         justifyContent="end"
         alignItems="center"

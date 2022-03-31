@@ -19,8 +19,10 @@ export function Carousel (){
       modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
       pagination={{ clickable: true }}
       navigation
-      // autoplay={true}
-      
+      autoplay={{
+        delay:2000
+      }}
+      loop={true}
       slidesPerView={1}
       className={styles.sliderContainer}
     >

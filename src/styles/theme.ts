@@ -18,7 +18,9 @@ export const theme = extendTheme({
     global: {
       body: {
         bg: 'gray.50',
-        color: 'gray.500'
+        color: 'gray.500',
+        maxWidth: '1440px',
+        margin: '0 auto'
       }
     }
   }
