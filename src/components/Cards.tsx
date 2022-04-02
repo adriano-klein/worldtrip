@@ -6,11 +6,18 @@ interface CardProps{
   country: string;
   image: string;
   countryFlag: string;
+  breakP: Object;
 }
 
-export default function Cards({city, country, image, countryFlag}: CardProps) {
+export default function Cards({city, country, image, countryFlag, breakP}: CardProps) {
   return(
-    <Box  maxW="256" borderWidth='1px' borderRadius='lg' mb="10">
+    <Box
+      paddingBottom="10"
+      maxW="300"
+      borderWidth='1px'
+      borderRadius='lg'
+      m="0 auto"
+      >
       <Image borderTopRadius="8" src={image} />
       <Flex>
         <Box p="5">
