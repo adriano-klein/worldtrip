@@ -3,27 +3,28 @@ import Cards from "../components/Cards";
 import { Header } from "../components/Header";
 
 
-const breakpoints = {
-  sm: '800px',
-  md: '1300px',
-  lg: '1500px',
-  xl: '1800px',
-}
-const theme = extendTheme({ breakpoints })
 
 export default function SouthAmerica(){
   return(
     <>
       <Header />
-      <Flex alignItems="end">
+      <Flex
+        alignItems={{base:'center',
+        md:'end',
+        sm:'center',
+        lg:'end',
+        xl:'end'}}
+        justifyContent={{base: 'center', lg:'start', xl:'start', md:'left'}}
+        >
         <Image h="500" w="100%" src="../images/SouthAmerica.jpg"/>
         <Text
-          ml="60"
-          mb={20}
           fontSize="48"
           fontWeight="700"
           color="whiteAlpha.900"
-          position="absolute">América
+          position="absolute"
+          marginLeft={{base:'0',lg:'120', xl:'120', sm: '0', md:'120'}}
+          marginBottom={{base:'0',lg:'20', xl:'20',sm:'0', md:'20'}}
+          >América
           do
           Sul</Text>
       </Flex>
@@ -31,13 +32,14 @@ export default function SouthAmerica(){
         flexDir={{xl:'row',
         lg:'row',
         md:
-        'column',
+        'row',
         sm:'column',
         base:
         'column'}}
         mt="10"
-        justifyContent="space-between">
-        <Box maxW="40%" >
+        justifyContent="space-between"
+        >
+        <Box maxW={{xl:'40%', lg:"40%", md:'40%', sm:'80%'}} margin={{base: '0 auto', sm:'0 auto'}}>
           <Text p="4" textAlign="justify" size="400" lineHeight="7">
           A Europa é, por convenção, um dos seis continentes do mundo. 
           Compreendendo a península ocidental da Eurásia, a Europa geralmente 
@@ -45,7 +47,17 @@ export default function SouthAmerica(){
           rio Ural, o mar Cáspio, o Cáucaso, e o mar Negro a sudeste.
           </Text>
         </Box>
-        <HStack gap={{xl:'50', md:'30', sm:'20'}} textAlign="center">
+        <HStack
+          margin={{
+            base:'0 auto',
+            sm:'0 auto'}}
+          gap={{
+            xl:'50',
+            lg:'50',
+            md:'30', 
+            sm:'30', 
+            base:'30'}}
+          textAlign="center">
           <Flex direction="column">
             <Text color="yellow.400" fontSize="45" fontWeight="600">50</Text>
             <Text fontWeight="600">Países</Text>
@@ -60,24 +72,31 @@ export default function SouthAmerica(){
           </Flex>
         </HStack>
       </Flex>
-      <Text ml="60" fontWeight="700" color="gray.600" fontSize={25}>Cidades +100</Text>
+      <Text
+        fontWeight="700"
+        color="gray.600"
+        fontSize={25}
+        marginLeft={{sm:'9%', md:'5%',lg:'5', base:'2%'}}
+        marginTop='5'
+        >
+          Cidades +100
+        </Text>
       <SimpleGrid
         columns={4}
-        pt={50}
+        pt='5'
         gridTemplateColumns={{xl:'repeat(4, 1fr)',
-        lg:'repeat(3, 1fr)', md: 'repeat(2, 1fr)', sm:'repeat(1, 1fr)'}}
+        lg:'repeat(4, 1fr)', md: 'repeat(3, 1fr)', sm:'repeat(2, 1fr)'}}
         margin="0 auto"
+        gap="10"
         >
         <GridItem>
           <Cards
-          breakP={breakpoints}
           city="São Paulo"
           country="Brasil"
           image="../images/saopaulo.jpg"
           countryFlag="./images/EnglandAvatar.svg"/></GridItem>
         <GridItem>
           <Cards
-          breakP={breakpoints}
           city="Rio de Janeiro"
           country="Brasil"
           image="../images/riodejaneiro.jpg"
@@ -85,7 +104,6 @@ export default function SouthAmerica(){
           </GridItem>
         <GridItem>
           <Cards
-          breakP={breakpoints}
           city="Lima"
           country="Perú"
           image="../images/lima.jpg"
@@ -93,7 +111,6 @@ export default function SouthAmerica(){
           </GridItem>
         <GridItem>
           <Cards
-          breakP={breakpoints}
           city="Buenos Aires"
           country="Argentina"
           image="../images/buenosaires.jpg"
@@ -101,7 +118,6 @@ export default function SouthAmerica(){
           </GridItem>
         <GridItem>
           <Cards
-          breakP={breakpoints}
           city="Montevideo"
           country="Uruguai"
           image="../images/montevideo.jpg"

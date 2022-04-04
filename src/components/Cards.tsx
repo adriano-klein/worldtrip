@@ -1,31 +1,41 @@
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 
-
 interface CardProps{
   city: string;
   country: string;
   image: string;
   countryFlag: string;
-  breakP: Object;
 }
 
-export default function Cards({city, country, image, countryFlag, breakP}: CardProps) {
+export default function Cards({city, country, image, countryFlag}: CardProps) {
   return(
     <Box
-      paddingBottom="10"
-      maxW="300"
+      maxW={{base:'90%',sm:'300', md:'300', lg:'300'}}
       borderWidth='1px'
       borderRadius='lg'
       m="0 auto"
       >
-      <Image borderTopRadius="8" src={image} />
-      <Flex>
-        <Box p="5">
-          <Text mb="4" fontSize="xl" fontWeight="600"> {city} </Text>
-          <Text fontSize="14"> {country} </Text>
+      <Image borderTopRadius="8" src={image}/>
+      <Flex padding={5} flexDirection="row" justifyContent="space-between">
+        <Box>
+          <Text
+            mb="2"
+            fontSize={{
+            base:'1.5rem'
+            }}
+            fontWeight="600">
+            {city}
+            </Text>
+          <Text fontSize={{ base:'1rem' }}> {country} </Text>
         </Box>
-        <Flex m="0 auto">
-          <Image src={countryFlag} />
+        <Flex m="right" >
+          <Image
+            height={{xl:"45",
+            lg:"45",
+            md:"45",
+            sm:"45",
+            base:"20"}}
+            src={countryFlag} />
         </Flex>
       </Flex>
     </Box>
