@@ -29,7 +29,7 @@ export default function Cards({city, country, image, countryFlag}: CardProps) {
           <Text fontSize={{ base:'1rem' }}> {country} </Text>
         </Box>
         <Flex m="right" >
-          <Image
+          <Image  
             height={{xl:"45",
             lg:"45",
             md:"45",

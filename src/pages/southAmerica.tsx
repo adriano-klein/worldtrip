@@ -1,10 +1,14 @@
 import { Box, Flex, GridItem, HStack, Image, Text, SimpleGrid, extendTheme,useBreakpointValue } from "@chakra-ui/react";
+import axios from "axios";
+import { GetStaticProps } from "next";
 import Cards from "../components/Cards";
 import { Header } from "../components/Header";
+import { api } from "../services/api";
 
 
 
-export default function SouthAmerica(){
+export default function SouthAmerica(flags){
+  console.log(flags)
   return(
     <>
       <Header />
@@ -41,10 +45,9 @@ export default function SouthAmerica(){
         >
         <Box maxW={{xl:'40%', lg:"40%", md:'40%', sm:'80%'}} margin={{base: '0 auto', sm:'0 auto'}}>
           <Text p="4" textAlign="justify" size="400" lineHeight="7">
-          A Europa é, por convenção, um dos seis continentes do mundo. 
-          Compreendendo a península ocidental da Eurásia, a Europa geralmente 
-          divide-se da Ásia a leste pela divisória de águas dos montes Urais, o 
-          rio Ural, o mar Cáspio, o Cáucaso, e o mar Negro a sudeste.
+          A América do Sul é repleta de lugares de tirar o fôlego e que valem muito a pena conhecer cada um deles.
+          Além dos lindos locais turísticos que você pode encontrar dentro do Brasil, o continente conta com
+          países paradisíacos e que vão te deixar de boca aberta.
           </Text>
         </Box>
         <HStack
@@ -59,11 +62,11 @@ export default function SouthAmerica(){
             base:'30'}}
           textAlign="center">
           <Flex direction="column">
-            <Text color="yellow.400" fontSize="45" fontWeight="600">50</Text>
+            <Text color="yellow.400" fontSize="45" fontWeight="600">13</Text>
             <Text fontWeight="600">Países</Text>
           </Flex>
           <Flex ml={48} direction="column">
-            <Text color="yellow.400" fontSize="45" fontWeight="600">60</Text>
+            <Text color="yellow.400" fontSize="45" fontWeight="600">7</Text>
             <Text fontWeight="600">Línguas</Text>
           </Flex>
           <Flex ml={48} direction="column">
@@ -94,38 +97,36 @@ export default function SouthAmerica(){
           city="São Paulo"
           country="Brasil"
           image="../images/saopaulo.jpg"
-          countryFlag="./images/EnglandAvatar.svg"/></GridItem>
+          countryFlag="./images/Brazil.png"/></GridItem>
         <GridItem>
           <Cards
           city="Rio de Janeiro"
           country="Brasil"
           image="../images/riodejaneiro.jpg"
-          countryFlag="./images/FranceAvatar.svg"/>
+          countryFlag="./images/Brazil.png"/>
           </GridItem>
         <GridItem>
           <Cards
           city="Lima"
           country="Perú"
           image="../images/lima.jpg"
-          countryFlag="./images/FranceAvatar.svg"/>
+          countryFlag="./images/Peru.png"/>
           </GridItem>
         <GridItem>
           <Cards
           city="Buenos Aires"
           country="Argentina"
           image="../images/buenosaires.jpg"
-          countryFlag="./images/CzechRepublic.svg"/>
+          countryFlag="./images/Argentina.png"/>
           </GridItem>
         <GridItem>
           <Cards
           city="Montevideo"
           country="Uruguai"
           image="../images/montevideo.jpg"
-          countryFlag="./images/NetherlandsAvatar.svg"/>
+          countryFlag="./images/Uruguay.png"/>
           </GridItem>
       </SimpleGrid>
     </>
-
-  
   )
 }
