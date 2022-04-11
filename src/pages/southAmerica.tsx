@@ -1,14 +1,14 @@
-import { Box, Flex, GridItem, HStack, Image, Text, SimpleGrid, extendTheme,useBreakpointValue } from "@chakra-ui/react";
-import axios from "axios";
+import { Box, Flex, GridItem, HStack, Image, Text, SimpleGrid } from "@chakra-ui/react";
 import { GetStaticProps } from "next";
 import Cards from "../components/Cards";
 import { Header } from "../components/Header";
 import { api } from "../services/api";
 
+interface continentsProps{
+  data: Object
+}
 
-
-export default function SouthAmerica(flags){
-  console.log(flags)
+export default function SouthAmerica({data}:continentsProps){
   return(
     <>
       <Header />
@@ -45,9 +45,7 @@ export default function SouthAmerica(flags){
         >
         <Box maxW={{xl:'40%', lg:"40%", md:'40%', sm:'80%'}} margin={{base: '0 auto', sm:'0 auto'}}>
           <Text p="4" textAlign="justify" size="400" lineHeight="7">
-          A América do Sul é repleta de lugares de tirar o fôlego e que valem muito a pena conhecer cada um deles.
-          Além dos lindos locais turísticos que você pode encontrar dentro do Brasil, o continente conta com
-          países paradisíacos e que vão te deixar de boca aberta.
+          {data['América do Sul'].desc}
           </Text>
         </Box>
         <HStack
@@ -62,15 +60,15 @@ export default function SouthAmerica(flags){
             base:'30'}}
           textAlign="center">
           <Flex direction="column">
-            <Text color="yellow.400" fontSize="45" fontWeight="600">13</Text>
+            <Text color="yellow.400" fontSize="45" fontWeight="600">{data['América do Sul'].totalCountries}</Text>
             <Text fontWeight="600">Países</Text>
           </Flex>
           <Flex ml={48} direction="column">
-            <Text color="yellow.400" fontSize="45" fontWeight="600">7</Text>
+            <Text color="yellow.400" fontSize="45" fontWeight="600">{data['América do Sul'].totalLanguages}</Text>
             <Text fontWeight="600">Línguas</Text>
           </Flex>
           <Flex ml={48} direction="column">
-            <Text color="yellow.400" fontSize="45" fontWeight="600">27</Text>
+            <Text color="yellow.400" fontSize="45" fontWeight="600">{data['América do Sul'].totalCities}</Text>
             <Text fontWeight="600">Cidades +100</Text>
           </Flex>
         </HStack>
@@ -92,41 +90,30 @@ export default function SouthAmerica(flags){
         margin="0 auto"
         gap="10"
         >
-        <GridItem>
-          <Cards
-          city="São Paulo"
-          country="Brasil"
-          image="../images/saopaulo.jpg"
-          countryFlag="./images/Brazil.png"/></GridItem>
-        <GridItem>
-          <Cards
-          city="Rio de Janeiro"
-          country="Brasil"
-          image="../images/riodejaneiro.jpg"
-          countryFlag="./images/Brazil.png"/>
-          </GridItem>
-        <GridItem>
-          <Cards
-          city="Lima"
-          country="Perú"
-          image="../images/lima.jpg"
-          countryFlag="./images/Peru.png"/>
-          </GridItem>
-        <GridItem>
-          <Cards
-          city="Buenos Aires"
-          country="Argentina"
-          image="../images/buenosaires.jpg"
-          countryFlag="./images/Argentina.png"/>
-          </GridItem>
-        <GridItem>
-          <Cards
-          city="Montevideo"
-          country="Uruguai"
-          image="../images/montevideo.jpg"
-          countryFlag="./images/Uruguay.png"/>
-          </GridItem>
+        {
+          data['América do Sul'].places.map(place => (
+            <GridItem>
+              <Cards
+              city={place.name}
+              country={place.country}
+              image={place.imageUrl}
+              countryFlag={place.avatar}
+              pageUrl="/"
+              />
+            </GridItem>
+          ))
+        }
       </SimpleGrid>
     </>
   )
+}
+
+export const getStaticProps: GetStaticProps = async() => {
+  const response = await api.get("continents");
+  
+  return{
+    props: {
+      data: response.data[0]
+    }
+  }  
 }

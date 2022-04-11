@@ -1,0 +1,70 @@
+{
+  "continents": [{
+    "América do Sul": {
+      "desc": "A América do Sul é repleta de lugares de tirar o fôlego e que valem muito a pena conhecer cada um deles. Além dos lindos locais turísticos que você pode encontrar dentro do Brasil, o continente conta com países paradisíacos e que vão te deixar de boca aberta.",
+      "totalCountries": 13,
+      "totalLanguages": 7,
+      "totalCities": 27,
+      "places":[{
+        "name": "São Paulo",
+        "country": "Brasil",
+        "imageUrl": "https://i.ibb.co/BrPxb3h/Masp.jpg",
+        "avatar":"https://i.ibb.co/Jd5Z2VF/Brazil.png"
+      }, {
+        "name": "Lima",
+        "country": "Peru",
+        "imageUrl": "https://i.ibb.co/1z4RwYN/lima.jpg",
+        "avatar":"https://i.ibb.co/QQMxh0L/Peru.png"
+      },{
+        "name": "Rio de Janeiro",
+        "country": "Brasil",
+        "imageUrl": "https://i.ibb.co/cCC8XYv/riodejaneiro.jpg",
+        "avatar":"https://i.ibb.co/Jd5Z2VF/Brazil.png"
+      },{
+        "name": "Buenos Aires",
+        "country": "Argentina",
+        "imageUrl": "https://i.ibb.co/qyhX3D6/buenosaires.jpg",
+        "avatar":"https://i.ibb.co/RNHjfxB/Argentina.png"
+      },{
+        "name": "Montevideo",
+        "country": "Uruguai",
+        "imageUrl": "https://i.ibb.co/0hkhMCs/montevideo.jpg",
+        "avatar":"https://i.ibb.co/Gsk6gPq/Uruguay.png"
+      }
+      ]
+    },
+    "Europa": {
+      "desc": "A Europa é, por convenção, um dos seis continentes do mundo. Compreendendo a península ocidental da Eurásia, a Europa geralmente divide-se da Ásia a leste pela divisória de águas dos montes Urais, o rio Ural, o mar Cáspio, o Cáucaso, e o mar Negro a sudeste.",
+      "totalCountries": 50,
+      "totalLanguages": 60,
+      "totalCities": 27,
+      "places":[{
+        "name": "Londres",
+        "country": "Reino Unido",
+        "imageUrl": "https://i.ibb.co/nn8MhTK/London.jpg",
+        "avatar":"https://i.ibb.co/zbH9F7q/england-Avatar.png"
+      }, {
+        "name": "Paris",
+        "country": "França",
+        "imageUrl": "https://i.ibb.co/wWT5b4m/France.jpg",
+        "avatar":"https://i.ibb.co/pXX2X7h/france-Avatar.png"
+      },{
+        "name": "Roma",
+        "country": "Itália",
+        "imageUrl": "https://i.ibb.co/f91FXch/Italy.jpg",
+        "avatar":"https://i.ibb.co/df14cBD/Italy-Avatar.png"
+      },{
+        "name": "Praga",
+        "country": "República Tcheca",
+        "imageUrl": "https://i.ibb.co/qyhX3D6/buenosaires.jpg",
+        "avatar":"https://i.ibb.co/h1270D6/rep-Tec-Avatar.png"
+      },{
+        "name": "Amsterdã",
+        "country": "Holanda",
+        "imageUrl": "https://i.ibb.co/VxXDSys/Netherlands.jpg",
+        "avatar":"https://i.ibb.co/zb3bSBZ/netherland-Avatar.png"
+      }
+      ]
+    }
+  }]
+}

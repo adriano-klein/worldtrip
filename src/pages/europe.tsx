@@ -1,10 +1,14 @@
 import { Box, Flex, GridItem, HStack, Image, Text, SimpleGrid, extendTheme,useBreakpointValue } from "@chakra-ui/react";
+import { GetStaticProps } from "next";
 import Cards from "../components/Cards";
 import { Header } from "../components/Header";
+import { api } from "../services/api";
 
+interface continentProps{
+  data: Object
+}
 
-
-export default function SouthAmerica(){
+export default function Europe({data}:continentProps){
   return(
     <>
       <Header />
@@ -39,9 +43,7 @@ export default function SouthAmerica(){
         >
         <Box maxW={{xl:'40%', lg:"40%", md:'40%', sm:'80%'}} margin={{base: '0 auto', sm:'0 auto'}}>
           <Text p="4" textAlign="justify" size="400" lineHeight="7">
-          A Europa é, por convenção, um dos seis continentes do mundo. Compreendendo a península ocidental 
-          da Eurásia, a Europa geralmente divide-se da Ásia a leste pela divisória de águas dos montes Urais, 
-          o rio Ural, o mar Cáspio, o Cáucaso, e o mar Negro a sudeste.
+          {data['Europa'].desc}
           </Text>
         </Box>
         <HStack
@@ -56,15 +58,15 @@ export default function SouthAmerica(){
             base:'30'}}
           textAlign="center">
           <Flex direction="column">
-            <Text color="yellow.400" fontSize="45" fontWeight="600">50</Text>
+            <Text color="yellow.400" fontSize="45" fontWeight="600">{data['Europa'].totalCountries}</Text>
             <Text fontWeight="600">Países</Text>
           </Flex>
           <Flex ml={48} direction="column">
-            <Text color="yellow.400" fontSize="45" fontWeight="600">60</Text>
+            <Text color="yellow.400" fontSize="45" fontWeight="600">{data['Europa'].totalLanguages}</Text>
             <Text fontWeight="600">Línguas</Text>
           </Flex>
           <Flex ml={48} direction="column">
-            <Text color="yellow.400" fontSize="45" fontWeight="600">27</Text>
+            <Text color="yellow.400" fontSize="45" fontWeight="600">{data['Europa'].totalCities}</Text>
             <Text fontWeight="600">Cidades +100</Text>
           </Flex>
         </HStack>
@@ -86,43 +88,32 @@ export default function SouthAmerica(){
         margin="0 auto"
         gap="10"
         >
-        <GridItem>
-          <Cards
-          city="Londres"
-          country="Reino Unido"
-          image="../images/London.jpg"
-          countryFlag="./images/EnglandAvatar.svg"/></GridItem>
-        <GridItem>
-          <Cards
-          city="Paris"
-          country="Brasil"
-          image="../images/France.jpg"
-          countryFlag="./images/FranceAvatar.svg"/>
-          </GridItem>
-        <GridItem>
-          <Cards
-          city="Roma"
-          country="Itália"
-          image="../images/Italy.jpg"
-          countryFlag="./images/ItalyAvatar.svg"/>
-          </GridItem>
-        <GridItem>
-          <Cards
-          city="Praga"
-          country="República Tcheca"
-          image="../images/buenosaires.jpg"
-          countryFlag="./images/CzechRepublic.svg"/>
-          </GridItem>
-        <GridItem>
-          <Cards
-          city="Amsterdã"
-          country="Holanda"
-          image="../images/Netherlands.jpg"
-          countryFlag="./images/NetherlandsAvatar.svg"/>
-          </GridItem>
+        {
+          data['Europa'].places.map(place => (
+            <GridItem>
+              <Cards
+              city={place.name}
+              country={place.country}
+              image={place.imageUrl}
+              countryFlag={place.avatar}
+              pageUrl="#"
+              />
+            </GridItem>
+          ))
+        }
       </SimpleGrid>
     </>
 
   
   )
+}
+
+export const getStaticProps: GetStaticProps = async() => {
+  const response = await api.get("continents");
+  
+  return{
+    props: {
+      data: response.data[0]
+    }
+  }  
 }
