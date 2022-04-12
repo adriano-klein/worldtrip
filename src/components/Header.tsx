@@ -1,4 +1,4 @@
-import { Flex, Image, Link } from "@chakra-ui/react";
+import { Flex, Image, Link, Switch, Text } from "@chakra-ui/react";
 
 export function Header(){
   return(
@@ -6,6 +6,8 @@ export function Header(){
       <Link href="/"  margin="0 auto">
         <Image src="../images/Logo.svg" alt="Logo World Trip" boxSize="160" margin="0 auto"/>
       </Link>
+      <Text>Modo escuro</Text>
+      <Switch ml="4"/>
     </Flex>
   )
 }
