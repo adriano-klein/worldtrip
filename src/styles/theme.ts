@@ -29,12 +29,12 @@ const theme = extendTheme({
   },
   styles: {
     global: (props) => ({
-      body: {
+      'html, body': {
         bg: props.colorMode === 'dark' ? '#021627' : 'gray.50',
         color: props.colorMode === 'dark' ? 'white' : 'gray.500',
         maxWidth: '1440px',
-        margin: '0 auto'
-      }
+        margin: '0 auto',
+      },
     })
   },
   config,

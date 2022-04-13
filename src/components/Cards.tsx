@@ -6,9 +6,10 @@ interface CardProps{
   image: string;
   countryFlag: string;
   pageUrl: string
+  alt: string
 }
 
-export default function Cards({city, country, image, countryFlag, pageUrl}: CardProps) {
+export default function Cards({city, country, image, countryFlag, pageUrl, alt}: CardProps) {
   return(
     <Link href={pageUrl} >
       <Box
@@ -17,7 +18,7 @@ export default function Cards({city, country, image, countryFlag, pageUrl}: Card
         borderRadius='lg'
         m="0 auto"
         >
-        <Image borderTopRadius="8" src={image} />
+        <Image borderTopRadius="8" src={image} alt={alt} />
         <Flex padding={5} flexDirection="row" justifyContent="space-between">
           <Box>
             <Text

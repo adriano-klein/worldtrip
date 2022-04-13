@@ -96,6 +96,7 @@ export default function Europe({data}:continentProps){
               country={place.country}
               image={place.imageUrl}
               countryFlag={place.avatar}
+              alt={place.name}
               pageUrl="#"
               />
             </GridItem>
