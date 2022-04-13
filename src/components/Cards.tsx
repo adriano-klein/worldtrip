@@ -19,7 +19,7 @@ export default function Cards({city, country, image, countryFlag, pageUrl, alt}:
         m="0 auto"
         >
         <Image borderTopRadius="8" src={image} alt={alt} />
-        <Flex padding={5} flexDirection="row" justifyContent="space-between">
+        <Flex key={alt} padding={5} flexDirection="row" justifyContent="space-between">
           <Box>
             <Text
               mb="2"
@@ -32,7 +32,8 @@ export default function Cards({city, country, image, countryFlag, pageUrl, alt}:
             <Text fontSize={{ base:'1rem' }}> {country} </Text>
           </Box>
           <Flex m="right" >
-            <Image  
+            <Image
+              alt={alt}  
               height={{xl:"45",
               lg:"45",
               md:"45",
