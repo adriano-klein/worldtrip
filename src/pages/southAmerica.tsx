@@ -94,6 +94,8 @@ export default function SouthAmerica({data}:continentsProps){
           data['América do Sul'].places.map(place => (
             <GridItem>
               <Cards
+              alt={place.name}
+              key={place.name}
               city={place.name}
               country={place.country}
               image={place.imageUrl}
