@@ -90,9 +90,8 @@ export default function Europe({data}:continentProps){
         >
         {
           data['Europa'].places.map(place => (
-            <GridItem>
+            <GridItem key={place.name}>
               <Cards
-              key={place.name}
               city={place.name}
               country={place.country}
               image={place.imageUrl}
