@@ -52,7 +52,7 @@ export function Banner({isResponsive}:showAirplaneProps){
           </Text>
         </Flex>
     }
-      {isResponsive ? <Box mr="30" mt="75"><Image src="../images/Airplane.svg"/></Box> : null}
+      {isResponsive ? <Box mr="30" mt="75"><Image src="../images/Airplane.svg" alt="avião"/></Box> : null}
     </Flex>
   )
 }
@@ -72,9 +72,9 @@ export function Banner({isResponsive}:showAirplaneProps){
             possibilidades.</Text>
         </Box>
         <Box position="absolute">
-          <Image src="../images/Airplane.svg"/>
+          <Image src="../images/Airplane.svg" alt="Avião"/>
         </Box>
-        <Image src="../images/Background.svg" w="100%" h="335px"/>
+        <Image src="../images/Background.svg" w="100%" h="335px" alt="Background"/>
       </Flex>
       {/* <Flex position="absolute" dir="column" align="center">
         <Text

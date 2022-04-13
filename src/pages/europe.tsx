@@ -20,7 +20,7 @@ export default function Europe({data}:continentProps){
         xl:'end'}}
         justifyContent={{base: 'center', lg:'start', xl:'start', md:'left'}}
         >
-        <Image h="500" w="100%" src="../images/Europe.jpg"/>
+        <Image h="500" w="100%" src="../images/Europe.jpg" alt="Europa"/>
         <Text
           fontSize="48"
           fontWeight="700"
