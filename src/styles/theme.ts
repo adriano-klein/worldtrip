@@ -1,4 +1,4 @@
-import { extendTheme } from '@chakra-ui/react';
+import { extendTheme, type ThemeConfig } from '@chakra-ui/react';
 
 const breakpoints = {
   sm: '635px',
@@ -7,7 +7,13 @@ const breakpoints = {
   xl: '1800px',
 }
 
-export const theme = extendTheme({
+const config: ThemeConfig = {
+  initialColorMode: 'dark',
+  useSystemColorMode: false
+
+}
+
+const theme = extendTheme({
   colors: {
     gray: {
       "50": '#F5F8FA',
@@ -22,15 +28,17 @@ export const theme = extendTheme({
     body: 'poppins',
   },
   styles: {
-    global: {
+    global: (props) => ({
       body: {
-        bg: 'gray.50',
-        color: 'gray.500',
+        bg: props.colorMode === 'dark' ? '#021627' : 'gray.50',
+        color: props.colorMode === 'dark' ? 'white' : 'gray.500',
         maxWidth: '1440px',
         margin: '0 auto'
       }
-    }
+    })
   },
+  config,
   breakpoints
 })
 
+export default theme
