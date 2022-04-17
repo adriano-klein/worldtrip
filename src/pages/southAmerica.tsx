@@ -1,4 +1,5 @@
 import { Box, Flex, GridItem, HStack, Image, Text, SimpleGrid } from "@chakra-ui/react";
+import axios from "axios";
 import { GetStaticProps } from "next";
 import Cards from "../components/Cards";
 import { Header } from "../components/Header";
@@ -45,7 +46,7 @@ export default function SouthAmerica({data}:continentsProps){
         >
         <Box maxW={{xl:'40%', lg:"40%", md:'40%', sm:'80%'}} margin={{base: '0 auto', sm:'0 auto'}}>
           <Text p="4" textAlign="justify" size="400" lineHeight="7">
-          {data['América do Sul'].desc}
+          {data[0].continents[0]["América do Sul"].desc}
           </Text>
         </Box>
         <HStack
@@ -60,15 +61,15 @@ export default function SouthAmerica({data}:continentsProps){
             base:'30'}}
           textAlign="center">
           <Flex direction="column">
-            <Text color="yellow.400" fontSize="45" fontWeight="600">{data['América do Sul'].totalCountries}</Text>
+            <Text color="yellow.400" fontSize="45" fontWeight="600">{data[0].continents[0]["América do Sul"].totalCountries}</Text>
             <Text fontWeight="600">Países</Text>
           </Flex>
           <Flex ml={48} direction="column">
-            <Text color="yellow.400" fontSize="45" fontWeight="600">{data['América do Sul'].totalLanguages}</Text>
+            <Text color="yellow.400" fontSize="45" fontWeight="600">{data[0].continents[0]["América do Sul"].totalLanguages}</Text>
             <Text fontWeight="600">Línguas</Text>
           </Flex>
           <Flex ml={48} direction="column">
-            <Text color="yellow.400" fontSize="45" fontWeight="600">{data['América do Sul'].totalCities}</Text>
+            <Text color="yellow.400" fontSize="45" fontWeight="600">{data[0].continents[0]["América do Sul"].totalCities}</Text>
             <Text fontWeight="600">Cidades +100</Text>
           </Flex>
         </HStack>
@@ -91,7 +92,7 @@ export default function SouthAmerica({data}:continentsProps){
         gap="10"
         >
         {
-          data['América do Sul'].places.map(place => (
+          data[0].continents[0]["América do Sul"].places.map(place => (
             <GridItem key={place.name}>
               <Cards
               alt={place.name}
@@ -110,11 +111,11 @@ export default function SouthAmerica({data}:continentsProps){
 }
 
 export const getStaticProps: GetStaticProps = async() => {
-  const response = await api.get("continents");
+  const response = await axios.get("https://6259ead4cda73d132d1b3cda.mockapi.io/continents")
   
   return{
     props: {
-      data: response.data[0]
+      data: response.data
     }
   }  
 }
