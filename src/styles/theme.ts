@@ -32,10 +32,11 @@ const theme = extendTheme({
       'html, body': {
         bg: props.colorMode === 'dark' ? '#021627' : 'gray.50',
         color: props.colorMode === 'dark' ? 'white' : 'gray.500',
+        headings: props.colorMode === 'dark' ? 'white' : 'gray.500',
         maxWidth: '1440px',
         margin: '0 auto',
       },
-    })
+    }),
   },
   config,
   breakpoints

@@ -29,12 +29,11 @@ export default function Home() {
           <Categories isResponsive={isDesktop} address="../images/Institution.svg" name="clássico" />
           <Categories isResponsive={isDesktop} address="../images/Globe.svg" name="e mais..." />
         </Grid>
-        <Text
+        <Text textStyle='h1'
           align="center"
           mt="10"
-          fontSize={30}
-          color="gray.600">Vamos
-          nessa?
+          fontSize={30}>
+            Vamos nessa?
           <br/>Então escolha seu continente
           </Text>
           <Carousel />
