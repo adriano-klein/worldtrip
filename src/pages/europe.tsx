@@ -74,7 +74,6 @@ export default function Europe({data}:continentProps){
       </Flex>
       <Text
         fontWeight="700"
-        color="gray.600"
         fontSize={25}
         marginLeft={{sm:'9%', md:'5%',lg:'5', base:'2%'}}
         marginTop='5'
