@@ -1,9 +1,10 @@
 import { Box, Flex, GridItem, HStack, Image, Text, SimpleGrid } from "@chakra-ui/react";
+import { InfoIcon } from '@chakra-ui/icons';
+import { Tooltip } from '@chakra-ui/react'
 import axios from "axios";
 import { GetStaticProps } from "next";
 import Cards from "../components/Cards";
 import { Header } from "../components/Header";
-import { api } from "../services/api";
 
 interface continentsProps{
   data: Object
@@ -74,14 +75,23 @@ export default function SouthAmerica({data}:continentsProps){
           </Flex>
         </HStack>
       </Flex>
-      <Text
-        fontWeight="700"
-        fontSize={25}
-        marginLeft={{sm:'9%', md:'5%',lg:'5', base:'2%'}}
-        marginTop='5'
-        >
-          Cidades +100
+      <Flex
+        flexDir='row'
+        alignItems="baseline"
+      >
+        <Text
+          fontWeight="700"
+          fontSize={25}
+          marginLeft={{sm:'9%', md:'5%',lg:'5', base:'2%'}}
+          marginTop='5'
+          >
+            Cidades +100
         </Text>
+        <Tooltip label="Existem mais cidades para conhecer">
+          <InfoIcon ml="3"/>
+        </Tooltip>
+      </Flex>
+      
       <SimpleGrid
         columns={4}
         pt='5'
